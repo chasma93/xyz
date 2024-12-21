@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Verification</title>
+</head>
+<body>
+    <h1>Enter the Code</h1>
+    <form onsubmit="verifyCode(event)">
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" required>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function verifyCode(event) {
+            event.preventDefault();
+            const code = document.getElementById('code').value;
+            const result = document.getElementById('result');
+
+            const correctCode = '102969';  // Set your correct code here
+
+            if (code === correctCode) {
+                result.innerHTML = `
+<p>Thank you!</p>
+                    <p>Entered  code is correct!</p>
+                    <p>Enter the link below in your browser to know the reason of sending spectacles.</p>
+                    <p>https://drive.google.com/drive/folders/1L_UUvEVQrpGMBZNAVbny2sfxeM4FUt2S</p>
+                `;
+                result.style.color = 'green';
+            } else {
+                result.innerHTML = `
+                    <p>Invalid code!</p>
+                    <p>Please try again.</p>
+                    <p>Ensure you have the correct code and try entering it again.</p>
+                `;
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
